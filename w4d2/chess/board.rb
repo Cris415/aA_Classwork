@@ -1,4 +1,5 @@
-require_relative "piece.rb"
+require_relative "pieces"
+
 class Board
   attr_reader :rows
   def initialize

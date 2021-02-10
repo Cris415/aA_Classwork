@@ -8,19 +8,13 @@ class Pawn < Piece
   end
 
   def to_s
-    #fix emojis
-    self.color == :black ? "♜" : "♖"
+    self.color == :black ? "♟" : "♙"
   end
 
   def moves 
-    
-   
-    
-    forward_steps.reject {|coord| color_check?(coord) || range_check?(coord)}
+    valid_moves = forward_steps.reject {|coord| color_check?(coord) || !range_check?(coord)}
       
-
-  
-
+    side_attacks + valid_moves
   end
 
   def color_check?(coord)
