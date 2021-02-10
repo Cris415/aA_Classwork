@@ -41,3 +41,8 @@ class Queen < Piece
   end
 
 end
+
+module Slidable
+  HORIZONTAL_DIRS = [[1,0], [-1, 0]]
+  DIAGONAL_DIRS = [[1, 1], [-1, 1], [-1, -1], [1, -1]]
+end
