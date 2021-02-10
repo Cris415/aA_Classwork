@@ -22,7 +22,7 @@ class Pawn < Piece
   end
 
   def range_check?(coord)
-    coord[0].between(0,7) && coord[1].between(0,7)
+    coord[0].between?(0,7) && coord[1].between?(0,7)
   end
 
   private
