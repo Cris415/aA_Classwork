@@ -9,9 +9,10 @@ class Rook < Piece
   end
 
   def to_s
-    self.color == :black ? "black rook" : "white rook"
+    self.color == :black ? "♜" : "♖"
   end
 
+  private
   def move_dirs
     self.horizontal_dirs
   end
@@ -27,9 +28,10 @@ class Bishop < Piece
   end
 
   def to_s
-    self.color == :black ? "black bishop" : "white bishop"
+    self.color == :black ? "♟" : "♗"
   end
 
+  private
   def move_dirs
     self.diagonal_dirs
   end
@@ -40,14 +42,15 @@ class Queen < Piece
   include Slidable
 
   def symbol
-    # "#{self.color} #{:rook}"
+    # "#{self.color} #{:rook}"♜
     :queen
   end
 
   def to_s
-    self.color == :black ? "black queen" : "white queen"
+    self.color == :black ? "♛" : "♕"
   end
 
+  private
   def move_dirs
     self.horizontal_dirs + self.diagonal_dirs
   end
@@ -67,8 +70,11 @@ module Slidable
   end
 
   def moves
-    self.move_dirs
-
+    possible_moves = []
+    move_dirs.each do |pos|
+      possible_moves += grow_unblocked_moves_in_dir(pos[0], pos[1])
+    end
+    possible_moves
   end
 
   private
