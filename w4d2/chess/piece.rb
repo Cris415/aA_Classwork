@@ -7,7 +7,7 @@ class Piece
   end
 
   def inspect
-    "color: #{@color}"
+    "Piece - color: #{@color}"
   end
-  
+
 end
