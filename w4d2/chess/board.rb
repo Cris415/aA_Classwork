@@ -54,7 +54,6 @@ class Board
   end
 
   def move_piece(start_pos, end_pos)
-    # replace start_pos with null piece
     if !start_pos[0].between?(0,7) || !start_pos[1].between?(0,7)
       raise "Not a valid start position"
     elsif !end_pos[0].between?(0,7) || !end_pos[1].between?(0,7) 
@@ -64,6 +63,7 @@ class Board
     end
     self[end_pos] = self[start_pos]
     self[start_pos] = NullPiece.instance
+     self[end_pos].pos = end_pos
     return end_pos
   end
 

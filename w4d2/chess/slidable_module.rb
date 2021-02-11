@@ -25,13 +25,16 @@ module Slidable
   end
 
   def grow_unblocked_moves_in_dir(dx, dy)
+    opponent_color = self.color == :black ? :white : :black 
     pos_dup = self.pos.dup
+
     moves = []
     pos_dup = [pos_dup[0] + dx, pos_dup[1] + dy]
-    until !pos_dup[0].between?(0,7) || !pos_dup[1].between?(0,7)
+
+    while pos_dup[0].between?(0,7) && pos_dup[1].between?(0,7)
       if self.board[pos_dup].color == self.color
         break
-      elsif self.board[pos_dup].color != self.color
+      elsif self.board[pos_dup].color == opponent_color
         moves << pos_dup
         break
       else

@@ -12,13 +12,21 @@ class Pawn < Piece
   end
 
   def moves 
-    valid_moves = forward_steps.reject {|coord| color_check?(coord) || !range_check?(coord)}
+    valid_moves = []
+    forward_steps.each do |coord|
+      dx, dy = coord 
+      end_pos =  [self.pos[0] + dx, self.pos[1] + dy]
+
+      if is_null_piece?(end_pos) && range_check?(end_pos)
+        valid_moves << end_pos
+      end
+    end
       
     side_attacks + valid_moves
   end
 
-  def color_check?(coord)
-    self.board[coord].color == :black || self.board[coord].color == :white
+  def is_null_piece?(coord)
+    self.board[coord].color == :null_piece
   end
 
   def range_check?(coord)
@@ -46,7 +54,7 @@ class Pawn < Piece
       poss_moves << [1 * forward_dir, 0]
       poss_moves << [2 * forward_dir, 0]
     else
-      poss_moves = [1 * forward_dir, 0]
+      poss_moves << [1 * forward_dir, 0]
     end
     poss_moves
   end
