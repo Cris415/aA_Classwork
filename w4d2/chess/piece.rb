@@ -16,4 +16,8 @@ class Piece
 
   end
 
+  def empty?
+    false
+  end
+
 end

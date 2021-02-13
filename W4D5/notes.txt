@@ -1,0 +1,18 @@
+merge sort
+	O(nlog(n))
+	O(log(n)) step is when half the array
+	O(n) step is the helper merge method
+
+subsets
+	2^n
+	iterative, creating a new subarray on each step and looping through
+	
+permutations
+	n!
+	the output is n! of the input
+
+require "benchmark" gem
+	can output a report on how fast an algo is running
+	Benchark.bm do |b|
+		b.report("1,000: ") { small.sort }
+	end
