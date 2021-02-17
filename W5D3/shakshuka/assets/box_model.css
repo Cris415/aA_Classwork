@@ -77,25 +77,52 @@ h2 + .user_review {
 
 nav {
   display: inline-block;
-
+  width: 700px;
 }
 
-li > a {
+nav ul li {
   display: inline-block;
   padding: 20px;
 }
 
-nav > ul {
-  /* display: flex; */
-
-}
-
-header {
-    /* display: flex;
-  justify-content: space-between; */
-}
-
 
 aside + section{
+  display: inline-block;
   width: 700px;
+}
+
+aside {
+  display: inline-block;
+  width: 180px;
+  margin-right: 15px;
+  vertical-align: top;
+}
+
+.ingredients-list > li {
+  margin: 15px 0;
+}
+
+#directions + ol > li {
+  margin: 15px 0;
+}
+
+#review-form input[type=text], select {
+  display: block;
+  width: 200px;
+}
+
+#review-form select {
+  margin: 10px;
+}
+
+#review-form textarea { 
+  width: 350px;
+}
+
+label {
+  display: block;
+}
+
+#review-form input[type=radio] {
+  display: inline-block;
 }
