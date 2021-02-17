@@ -4,6 +4,8 @@ body {
   /* If the user cannot load the Arial font, the sans-serif font is used */
   font-family: Arial, sans-serif;
   background-color: #FEFFF1;
+  width: 900px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -25,6 +27,7 @@ ul li a, figcaption a {
 of the header element */
 header > img {
   width: 100px;
+  height: 36.5px;
 }
 
 /* Selects all elements with the class attribute "ingredients-list" */
@@ -72,3 +75,27 @@ h2 + .user_review {
     border-top: 1px solid black;
 }
 
+nav {
+  display: inline-block;
+
+}
+
+li > a {
+  display: inline-block;
+  padding: 20px;
+}
+
+nav > ul {
+  /* display: flex; */
+
+}
+
+header {
+    /* display: flex;
+  justify-content: space-between; */
+}
+
+
+aside + section{
+  width: 700px;
+}
