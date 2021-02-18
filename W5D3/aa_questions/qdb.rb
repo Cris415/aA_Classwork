@@ -65,6 +65,55 @@ end
 
 class Question
 
+    def self.find_by_id(id)
+        question = QuestionsDatabase.instance.execute(<<-SQL, id)
+            SELECT
+                *
+            FROM
+                questions
+            WHERE
+                id = ? 
+        SQL
+        question.length <= 0 ? nil : Question.new(question.first)
+    end
+
+    def self.find_by_title(title)
+        question = QuestionsDatabase.instance.execute(<<-SQL, title) 
+            SELECT 
+                *
+            FROM
+                questions
+            WHERE 
+                title LIKE "?%"
+        SQL
+        question.length <= 0 ? nil : Question.new(question.first)
+    end
+
+    def self.all
+        qs = QuestionsDatabase.instance.execute('SELECT * FROM questions')
+        qs.map { |datum| Question.new(datum) }
+    end
+
+    def initialize(options)
+        @id = options['id']
+        @title = options['title']
+        @body = options['body']
+        @users_id = options['users_id']
+    end
+
+    def create
+        raise "#{self} already in database" if @id
+
+        QuestionsDatabase.instance.execute(<<-SQL, title, body, users_id)
+            INSERT INTO 
+                questions (title, body, users_id)
+            VALUES
+                (?, ?, ?)
+        SQL
+        self.id = QuestionsDatabase.instance.last_insert_row_id
+    end
+
+
 end
 
 
