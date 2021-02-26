@@ -9,6 +9,7 @@ body {
 .header{ 
   width: 100%;
   background-color: red;
+  border-bottom: whitesmoke 1px solid;
 }
 
 .header-nav{
@@ -26,20 +27,25 @@ body {
   color: white;
   border-left: white 1px solid;
   border-right: white 1px solid;
+  cursor: pointer;
 }
+
 .header-logo:hover {
  background-color: black;
 }
 
 .header-list{
+  position: relative;
   display: flex; 
+  cursor: pointer;
 }
 
 .header-list > li {
   padding: 10px 20px;
+    display: inline-block;
 }
 
-.header-list :hover {
+.header-list > :hover {
  background-color: black;
 }
 
