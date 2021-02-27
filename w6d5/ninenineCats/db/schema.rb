@@ -16,13 +16,14 @@ ActiveRecord::Schema.define(version: 2021_02_26_215344) do
   enable_extension "plpgsql"
 
   create_table "cats", force: :cascade do |t|
-    t.date "birth_date"
-    t.string "color"
-    t.string "name"
-    t.string "sex"
-    t.text "description"
+    t.date "birth_date", null: false
+    t.string "color", null: false
+    t.string "name", null: false
+    t.string "sex", limit: 1, null: false
+    t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["color", "name", "sex"], name: "index_cats_on_color_and_name_and_sex"
   end
 
 end
