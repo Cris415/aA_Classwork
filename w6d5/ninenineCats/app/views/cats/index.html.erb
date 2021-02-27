@@ -1,7 +1,19 @@
 <ul>
     <% @cats.each do |cat| %>
         <li>
-        <%= render "cat", cat: cat %>
+        <%=   cat.name %>
+        </li>
+        <li>
+         <%=  cat.color%>
+        </li>
+        <li>
+        <%=  cat.sex %>
+        </li>
+        <li>
+        <%=  cat.age %>
+        </li>
+        <li>
+        <%=  cat.description %>
         </li>
     <% end %>
 </ul>

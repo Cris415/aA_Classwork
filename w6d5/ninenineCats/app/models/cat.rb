@@ -1,4 +1,4 @@
-require action_view
+require "action_view"
 
 class Cat < ApplicationRecord
 
@@ -10,7 +10,7 @@ class Cat < ApplicationRecord
 
   def age 
     # (Date.today.year - birth_date.year).floor
-    time_ago_in_words(Time.now - birth_date)
+    time_ago_in_words(birth_date)
   end
 
 

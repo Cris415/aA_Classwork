@@ -13,22 +13,20 @@ class CatsController < ApplicationController
     end
 
     def create
-        @cat = Cat.new(user_params)
-     if user.save
-      render :create
-     else
-      render :create.errors.full_messages, status: :unprocessable_entity
-     end
+        @cat = Cat.new(cat_params)
+        if @cat.save
+            redirect_to cat_url(@cat.id)
+        else
+            # p "testing"
+            # render :show
+        end
     end
-
-
-
 
 
     private
 
-    def user_params
-      user_param = params.require(:user).permit(:name, :email)
+    def cat_params
+      cat_param = params.require(:cats).permit(:name, :color, :sex, :description, :birth_date)
     end
 
 
