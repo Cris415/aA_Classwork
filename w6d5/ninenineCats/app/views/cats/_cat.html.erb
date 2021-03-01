@@ -1,0 +1,13 @@
+
+<% if action == "show" %>
+  <a href="<%= cats_url %>">Go back to index</a>
+<% end %>
+
+
+<ul class="single-cat">
+  <li> <%= cat.name%> </li>
+  <li> <%= cat.age%> </li>
+  <li> <%= cat.color%> </li>
+  <li> <%= cat.sex%> </li>
+  <li> <%= cat.description%> </li>
+</ul>

@@ -1,19 +1,7 @@
-<ul>
+<a href="<%= new_cat_url %>">Add a cat</a>
+<ul class="all-cats">
     <% @cats.each do |cat| %>
-        <li>
-        <%=   cat.name %>
-        </li>
-        <li>
-         <%=  cat.color%>
-        </li>
-        <li>
-        <%=  cat.sex %>
-        </li>
-        <li>
-        <%=  cat.age %>
-        </li>
-        <li>
-        <%=  cat.description %>
-        </li>
+    <li> <%= render "cat", cat: cat, action: "index" %> </li>
     <% end %>
 </ul>
+

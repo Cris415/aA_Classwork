@@ -10,7 +10,10 @@ class Cat < ApplicationRecord
 
   def age 
     # (Date.today.year - birth_date.year).floor
-    time_ago_in_words(birth_date)
+    if birth_date
+     return time_ago_in_words(birth_date)
+    end
+    0
   end
 
 

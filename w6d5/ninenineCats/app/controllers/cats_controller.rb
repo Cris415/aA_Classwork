@@ -14,12 +14,39 @@ class CatsController < ApplicationController
 
     def create
         @cat = Cat.new(cat_params)
+
         if @cat.save
-            redirect_to cat_url(@cat.id)
+            redirect_to cat_url(@cat)
         else
-            # p "testing"
-            # render :show
+            render :index
         end
+    end
+
+    def new
+        @cat = Cat.new
+        render :new
+    end
+
+    def edit
+        @cat = Cat.find_by(id: params[:id])
+        render :edit
+    end
+
+    def update 
+        @cat = Cat.find_by(id: params[:id])
+
+        if cat.update(cat_params)
+            redirect_to user_url(params[:id])
+        end
+    end
+
+
+
+    def destroy 
+        cat = Cat.find_by(id: params[:id])
+        cat.destroy
+
+        redirect_to users_url
     end
 
 
