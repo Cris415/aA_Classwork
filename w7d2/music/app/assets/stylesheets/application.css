@@ -1,0 +1,95 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ body{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-family:Georgia, 'Times New Roman', Times, serif;
+   color:#525252;
+   background-color: whitesmoke;
+ }
+
+ .header {
+  background-color: rgba(69, 131, 237, 0.788);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  border-radius: 5px;
+  width: 95%;
+ }
+
+ .header h1 {
+  font-family:'Courier New', Courier, monospace;
+  font-weight: 100;
+  color: white;
+ }
+
+ .login-buttons {
+  display: flex;
+  /* height: 20px; */
+  justify-content: center;
+ }
+
+ .login-buttons a {
+   
+   background-color: whitesmoke;
+    text-decoration: none;
+    color: inherit;
+    padding: 5px 10px;
+    border-radius: 7px;
+ }
+ .login-buttons :first-child {
+   margin-right: 10px;
+ }
+
+ .login-buttons a:hover{
+   background-color: rgb(255, 236, 32);
+   color:rgb(69, 69, 69)
+ }
+
+  .auth-form {
+    display: block;
+    background-color: rgb(238, 227, 96);
+    border-radius: 10px;
+    padding: 20px;
+    width: 350px;
+    height: 300px;
+    margin-top: 25px;
+  }
+ .auth-form form{
+  display: flex;
+  flex-direction: column;
+
+ }
+
+ .auth-form form label {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+
+ .auth-form input {
+   padding: 5px 0;
+   margin: 10px;
+   width: 200px;
+ }
+
+ .auth-form input[type="submit"]{
+   align-self: center;
+ }
