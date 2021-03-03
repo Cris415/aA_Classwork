@@ -1,0 +1,24 @@
+<form action="<%= track_url(@track) %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method"  value="PUT">
+
+  <label>Title 
+    <input type="text" name="track[title]" value="<%= @track.title %>">
+  </label>
+  <label>Track number
+    <input type="number" name="track[ord]" value="<%= @track.ord %>">
+  </label>
+  <label for="lyrics"></label>
+  <textarea name="track[lyrics]" id="lyrics" cols="30" rows="10"> <%= @track.lyrics %>"</textarea>
+
+   <p>Track type: </p>
+    <input type="radio" id="regular" name="track[track_type]" value="regular" checked >
+    <label for="regular">Regular</label><br>
+
+    <input type="radio" id="bonus" name="track[track_type]" value="bonus">
+    <label for="bonus">Bonus</label><br>
+
+
+  <input type="submit" value="Edit Track">
+
+</form>

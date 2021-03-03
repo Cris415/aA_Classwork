@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    p "TESTING DESTROY"
     logout!
     redirect_to new_user_url
   end

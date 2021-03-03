@@ -2,17 +2,17 @@
 <p><%= @band.name %></p>
 
 <h2>Albums</h2>
-
+<div class="list-container">
 <% @band.albums.each do |album| %>
-  <ul>
-    <li><%= album.title %></li>
+  <ul class="any-list">
+   <a href="<%= album_url(album) %>"> <li><%= album.title %></li> </a>
     <li><%= album.year %></li>
     <li><%= album.live %></li>
   </ul>
   <br>
 <% end %>
 
-
+</div>
 <a href="<%= new_band_album_url(band_id: @band.id) %>">Create an album</a>
 
 

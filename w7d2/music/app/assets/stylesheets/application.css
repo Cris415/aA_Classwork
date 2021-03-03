@@ -14,7 +14,7 @@
  *= require_self
  */
 
- body{
+ body {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -46,15 +46,22 @@
  }
 
  .login-buttons a {
-   
-   background-color: whitesmoke;
-    text-decoration: none;
-    color: inherit;
-    padding: 5px 10px;
-    border-radius: 7px;
+  background-color: whitesmoke;
+  text-decoration: none;
+  color: inherit;
+  padding: 5px 10px;
+  border-radius: 7px;
+  margin: 0 10px;
  }
- .login-buttons :first-child {
-   margin-right: 10px;
+ .login-buttons input[type="submit"] {
+   text-decoration: none;
+   padding: 5px 10px;
+   background-color: whitesmoke;
+   color: inherit;
+  font-size: 12px;
+  border: none;
+  border-radius: 7px;
+  height: 20px;
  }
 
  .login-buttons a:hover{
@@ -92,4 +99,20 @@
 
  .auth-form input[type="submit"]{
    align-self: center;
+ }
+
+ .list-container{
+   display: flex;
+   flex-wrap: wrap;
+  margin: 10px 0;
+ }
+
+ .any-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+   border: rgb(182, 182, 182) 1px solid;
+   margin: 0 10px;
  }

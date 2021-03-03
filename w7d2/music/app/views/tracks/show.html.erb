@@ -1,0 +1,11 @@
+<div>
+  Title: <%= @track.title %><br>
+  Album: <%= @track.album.title %><br>
+  Track Number <%= @track.ord %><br>
+  Track Type<%= @track.track_type %><br>
+  Lyrics <%= @track.lyrics %><br>
+</div>
+
+<a href="<%= edit_track_url %>">edit track</a>
+<a href="<%= album_url(@track.album) %>">Back to album</a>
+

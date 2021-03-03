@@ -1,16 +1,25 @@
   
-  <h1>Album show page</h1>
-  <ul>
-    <li>
-      <%= @album.title %>
-    </li>
-    <li>
-      <%= @album.year %>
-    </li>
-    <li>
-     <%=  @album.band.name %>
-    </li>
-    <li> live: 
-      <%= @album.live %>
-    </li>
-  </ul>
+<h1>Album show page</h1>
+<ul class="any-list ">
+  <li>
+    <%= @album.title %>
+  </li>
+  <li>
+    <%= @album.year %>
+  </li>
+  <li>
+    <%=  @album.band.name %>
+  </li>
+  <li> live: 
+    <%= @album.live %>
+  </li>
+
+  <ol >
+    <% @album.tracks.each do |track| %>
+     <a href="<%= track_url(track) %>"><li>  <%= track.title %>  </li></a> 
+    <% end %>
+  </ol>
+</ul>
+
+<a href="<%= new_album_track_url(@album) %>">add track</a>
+<a href="<%= band_url(@album.band_id) %>">Back to Band</a>
