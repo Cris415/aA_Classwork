@@ -1,0 +1,43 @@
+.sections-sidebar {
+  // display: inline;
+  background-color: blue;
+  position: relative;
+  float: left;
+  opacity: 0;
+  padding: 20px  ;
+  // display: flex;
+  // flex-direction: column;
+  // align-content: flex-start;
+  height: 100vh; 
+  top: 0;
+  left:0 ;
+  z-index: 2;
+  transition: all;
+}
+
+.expand {
+  opacity: 1;
+  
+}
+
+#sections-sidebar-btn {
+  display: inline-block;
+}
+
+
+@media all and (max-width: 800px) {
+
+  .section-nav {
+    display: none;
+  }
+
+  .right-nav button {
+    display: none;
+  }
+
+  .left-nav {
+    margin: 0;
+  }
+}
+
+
