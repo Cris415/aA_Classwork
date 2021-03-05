@@ -1,18 +1,18 @@
 .sections-sidebar {
-  // display: inline;
-  background-color: blue;
+  background-color: white;
   position: relative;
   float: left;
   opacity: 0;
   padding: 20px  ;
-  // display: flex;
-  // flex-direction: column;
-  // align-content: flex-start;
   height: 100vh; 
   top: 0;
-  left:0 ;
+  left: 50px;
   z-index: 2;
-  transition: all;
+  transition: all 0.3s ease;
+  li {
+    padding: 10px;
+    font-family: $sans-serif;
+  }
 }
 
 .expand {
