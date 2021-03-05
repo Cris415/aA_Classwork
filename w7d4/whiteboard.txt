@@ -1,0 +1,118 @@
+CREPE
+Clarify the question
+Roadmap
+Execute
+Prove that it works
+Efficienty Optimize
+
+Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+Example 1:
+Input: "babad"
+Output: "bab"
+Note: "aba" is also a valid answer.
+Example 2:
+Input: "cbbd"
+Output: "bb"
+
+
+def longest_palindrome(string) # babad
+  lngpal = string[0] #b
+  string.each_char.with_index do |char1, i1| # char1 =  b, i1 = 0
+    curr_str += char1  # curr_str = b
+    string.each_char.with_index do |char2, i2| char2 = a i1 3
+      if i2 > i1  
+        curr_str += char2 #baba
+        if curr_str == curr_str.reverse && curr_str.length > lngpal.length
+          lngpal = curr_str #bab
+        end
+      end
+    end
+  end
+end
+
+
+
+Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+Integers in each row are sorted from left to right.
+The first integer of each row is greater than the last integer of the previous row.
+Example 1:
+Input:
+matrix = [
+  [1,   3,  5,  7],
+  [10, 11, 16, 20],
+  [23, 30, 34, 50]
+]
+target = 3
+Output: true
+Example 2:
+Input:
+matrix = [
+  [1,   3,  5,  7],
+  [10, 11, 16, 20],
+  [23, 30, 34, 50]
+]
+target = 13
+Output: false
+
+#use flatten and use .include? to check for target
+arr = [
+  [1,   3,  5,  7],
+  [10, 11, 16, 20],
+  [23, 30, 34, 50]
+]
+target = 3
+
+
+
+def target_search(arr, target) 
+  arr.flatten.include?(target) #arr.flatten = [1, 3,  5,  7, 10, 11, 16, 20, 23, 30, 34, 50 ].include?(3) = true
+end 
+nlogn
+
+
+roadmap in each subarray check first element and compare it to my target. then check if the last element of the sub array is equal to or less than my target. check array if target is in there.
+
+def target_search(arr, target) 
+  arr_index = 0
+  arr.each.with_index do |sub_arr, i|
+    if sub_arr[0] <= target && sub_arr[-1] >= target
+      break
+    end
+  end
+
+
+end 
+
+Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s.
+ A subtree of s is a tree consists of a node in s and all of this node's descendants. 
+ The tree s could also be considered as a subtree of itself.
+Example 1:
+Given tree s:
+     3
+    / \
+   4   5
+  / \
+ 1   2
+Given tree t:
+   4 
+  / \
+ 1   2
+Return true, because t has the same structure and node values with a subtree of s.
+Example 2:
+Given tree s:
+     3
+    / \
+   4   5
+  / \
+ 1   2
+    /
+   0
+Given tree t:
+   4
+  / \
+ 1   2
+Return false.
+
+# dfs depth first search
+tree = [3, [[4, 1, [2, 0]], 5]]
+s = [[4,1,2]]
