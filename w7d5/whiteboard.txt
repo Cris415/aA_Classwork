@@ -1,0 +1,80 @@
+CREPE
+
+
+
+
+Problem 1:
+Given a file path:
+/users/app_academy_work/curriculumn/ruby/../sql/./../rails
+root: [users]
+roots_child: [app_app_academy_work]
+[app_app_academy_work]_child : [curriculumn]
+curriculum_childs: [sql, rails]
+ADT: Tree
+
+Reduce this path to the shortest possible path:
+/users/app_academy_work/curriculumn/rails
+What ADT you can use to solve this problem?
+Keep in mind that ../ means traveling up a directory and ./ means searching in the current directory.
+ADT: Abstract Data Type: Queue and Stack can be implemented as Array, String, Hash
+stack.
+
+[users]
+
+
+
+Problem 1:
+Given a pattern and a string str, determine if str follows the same pattern.
+Example 1
+Input: pattern = "abba", str = "dog cat cat dog"
+Output: true
+Example 2
+Input: pattern = "abba", str = "dog cat cat fish"
+Output: false
+Example 3
+Input: pattern = "aaaa", str = "dog cat cat dog"
+Output: false
+Example 4
+Input: pattern = "abba", str = "dog dog dog dog"
+Output: false
+You may assume pattern contains only lowercase letters, and str contains lowercase letters that may be separated by a single space.
+ Can you solve it in O(N) time and O(1) space?
+
+# "abba", str = "dog cat cat dog"
+
+def pattern_matcher(pattern, str) "
+  dict = {}
+  str_arr = str.split [dog cat cat dog]
+
+  str.each_char.with_index do |char, i|  
+    dict[char] = str_arr[i]
+  end
+
+  str_arr.each.with_index do |word, i|
+    return false if word =! dict[string[i]]
+  end
+
+  true
+end
+
+
+Problem 2:
+Given an array of integers A sorted in non-decreasing order, return an array of the squares of each number, also in sorted non-decreasing order.
+Attempt to do this in O(n) time complexity.
+Example 1:
+Input: [-4,-1,0,3,10]
+Output: [0,1,9,16,100]
+Example 2:
+Input: [-7,-3,2,3,11]
+Output: [4,9,9,49,121]
+Note:
+1 <= A.length <= 10000
+-10000 <= A[i] <= 10000
+A is sorted in non-decreasing order.
+
+Notes: find the square of each num. sort method on that array. 
+hash=absolute value
+hash[index]
+convert neg values in the array to positive. 
+[]
+

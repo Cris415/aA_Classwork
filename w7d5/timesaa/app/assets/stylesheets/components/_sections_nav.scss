@@ -1,0 +1,21 @@
+.section-nav {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+  border-bottom: $light-gray 1px solid;
+  a {
+    font-family: $sans-serif;
+  }
+  a:hover{
+    background-color: $light-gray;
+  }
+
+  li:last-child:hover{
+    a:hover {
+      background-color: white;
+    }
+    
+    text-decoration: underline;
+  }
+
+}
