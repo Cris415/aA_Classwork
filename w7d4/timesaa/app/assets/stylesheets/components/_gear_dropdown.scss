@@ -1,1 +1,18 @@
 // Use the gear_dropdown.png screenshot as a style guide
+#gear-icon {
+  position: relative;
+}
+
+#gear-icon:hover .gear-dropdown  {
+  display: block;
+}
+
+.gear-dropdown {
+  position: absolute;
+  display: none;
+  top: 25px;
+  right: 10px;
+  z-index: 1;
+
+  background-color: white;
+}
