@@ -15,10 +15,8 @@ class SubsController < ApplicationController
     @sub.user_id = params[:user_id]
     if @sub.save == false 
       flash[:errors] = ["Invalid sub details"]
-      render :new
-    else
-      redirect_to user_url(@sub)
     end
+      redirect_to user_url(@sub.user_id)
   end
 
   def show

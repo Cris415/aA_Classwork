@@ -21,8 +21,15 @@
      <%else%>
           <a href="<%=new_session_url%>">Sign In</a>
           <a href="<%=new_user_url%>">Sign Up</a>
-           
    <%end%>
+
+   <ul>
+    <% if flash[:errors] %>
+      <li> <%= flash[:errors] %>  </li> 
+    <% end %>
+   </ul>
+
+   
 
     <!-- # <%%> <%=%> -->
     <%= yield %>

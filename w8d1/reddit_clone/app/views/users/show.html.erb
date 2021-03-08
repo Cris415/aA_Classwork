@@ -1,6 +1,6 @@
 <h1>Welcome <%=@user.username%></h1>
 
-<form action="" method="post">
+<form action="<%= user_subs_url(@user) %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
   <label> Title
      <input type="text" name="sub[title]" value="">
@@ -14,4 +14,10 @@
 
 </form>
 <!-- # <%%> <%=%> -->
+<ul>
+<% current_user.subs.each do |sub| %>
+   <li> Title: <%= sub.title %> <br> description: <%= sub.description %> </li>
+   <br>
+<% end %>
+</ul>
 
