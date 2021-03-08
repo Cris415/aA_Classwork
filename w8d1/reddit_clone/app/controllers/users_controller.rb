@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       flash[:errors] = ["Invalid User"]
       render :new
     else
+      sign_in!(@user)
       redirect_to user_url(@user)
     end
   end
