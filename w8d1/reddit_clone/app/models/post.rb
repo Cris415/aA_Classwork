@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   validates(:title, :sub_id, presence: true)
 
   belongs_to :sub,
-  foreign_key: :sub_id,
+  foreign_key: :sub_id, optional: true,
   class_name: :Sub
 
   belongs_to :author,

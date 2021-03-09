@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @subs = Sub.all
     @user = User.find_by(id: params[:id])
     render :show
   end

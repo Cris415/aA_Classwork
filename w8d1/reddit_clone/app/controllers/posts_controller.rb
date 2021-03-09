@@ -7,15 +7,13 @@ class PostsController < ApplicationController
   end 
 
   def create
-    @post = Post.new(params.require(:post).permit(:title, :url, :content))
+    @post = Post.new(params.require(:post).permit(:title, :url, :content, :sub))
     @post.user_id = params[:user_id]
 
     if @post.save ==  false
-      flash[:errors] = ["Invalid post details"]
-      render :new
-    else
-      redirect_to user_url(@post)
+      flash[:errors] = @post.errors.full_messages
     end
+    redirect_to user_url(@post.user_id)
   end
 
   def show
