@@ -1,4 +1,5 @@
 require 'active_support'
+require 'active_support/inflector'
 require 'active_support/core_ext'
 require 'erb'
 require_relative './session'
@@ -7,7 +8,7 @@ class ControllerBase
   attr_reader :req, :res, :params
 
   def self.errors(error)
-    if error = :double_render
+    if error == :double_render
       raise "Double render error"
     end
   end
@@ -52,6 +53,16 @@ class ControllerBase
   # use ERB and binding to evaluate templates
   # pass the rendered html to render_content
   def render(template_name)
+    controller_name = self.class.name.underscore
+
+    # path_str = "views/#{controller_name}/#{template_name}.html.erb"
+    # folder = File.dirname(path_str)
+    path_str = File.join("views", controller_name, template_name.to_s + ".html.erb")
+
+    file_output = File.read(path_str)
+    template = ERB.new(file_output).result(binding)
+
+    render_content(template,'text/html')
   end
 
   # method exposing a `Session` object
