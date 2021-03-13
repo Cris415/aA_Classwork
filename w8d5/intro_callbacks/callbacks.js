@@ -1,4 +1,4 @@
-const readline = require("readline");
+// const readline = require("readline");
 
 
 class Clock {
@@ -39,10 +39,10 @@ class Clock {
 // const clock = new Clock();
 
 
-const reader = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+// const reader = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
 
 
 
@@ -167,13 +167,13 @@ Function.prototype.myThrottle = function(interval){
 }
 
 
-class Neuron {
-  fire() {
-    console.log("Firing!");
-  }
-}
+// class Neuron {
+//   fire() {
+//     console.log("Firing!");
+//   }
+// }
 
-const neuron = new Neuron();
+
 // When we create a new Neuron,
 // we can call #fire as frequently as we want
 
@@ -189,11 +189,7 @@ const neuron = new Neuron();
 // the #fire function of our neuron so that it can only fire
 // once every 500ms:
 
-neuron.fire = neuron.fire.myThrottle(500);
 
-const interval = setInterval(() => {
-  neuron.fire();
-}, 10);
 
 // This time, if our Function#myThrottle worked correctly,
 // the Neuron#fire function should only be able to execute
@@ -202,12 +198,74 @@ const interval = setInterval(() => {
 
 // If we want this behavior for ALL neurons, we can do the same logic in the constructor:
 
-class Neuron {
+// class Neuron {
+//   constructor() {
+//     this.fire = this.fire.myThrottle(500);
+//   }
+
+//   fire() {
+//     console.log("Firing!");
+//   }
+// }
+
+// const neuron = new Neuron();
+
+// // neuron.fire = neuron.fire.myThrottle(500);
+
+// const interval = setInterval(() => {
+//   neuron.fire();
+// }, 10);
+
+
+
+// ------------ Debounce ---------------
+
+
+
+Function.prototype.myDebounce = function(interval){
+  clearInterval()
+   return () => {
+       timer = setTimeout(this, interval);
+       clearInterval(timer);
+    }
+
+}
+
+
+class SearchBar {
   constructor() {
-    this.fire = this.fire.myThrottle(500);
+    this.query = "";
+
+    this.type = this.type.bind(this);
+    this.search = this.search.bind(this);
   }
 
-  fire() {
-    console.log("Firing!");
+  type(letter) {
+    this.query += letter;
+    this.search();
+  }
+
+  search() {
+    console.log(`searching for ${this.query}`);
   }
 }
+
+const searchBar = new SearchBar();
+
+const queryForHelloWorld = () => {
+  searchBar.type("h");
+  searchBar.type("e");
+  searchBar.type("l");
+  searchBar.type("l");
+  searchBar.type("o");
+  searchBar.type(" ");
+  searchBar.type("w");
+  searchBar.type("o");
+  searchBar.type("r");
+  searchBar.type("l");
+  searchBar.type("d");
+};
+
+queryForHelloWorld();
+
+searchBar.search = searchBar.search.myDebounce(500);
